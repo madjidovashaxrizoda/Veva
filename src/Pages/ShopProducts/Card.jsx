@@ -1,14 +1,17 @@
 import Counter from '../../components/Counter/Counter';
 import React, {useState} from 'react'
 import ButtonMain from '../../components/Global/ButtonMain';
-
+import { Link, useNavigate } from 'react-router-dom';
 
 const Card = (props) => {
     const [count, setCount] = useState(0);
     const [total, setTotal] = useState(0);
 	const [kuler, setKuler] = useState(0)
 	const [pompa, setPompa] = useState(0)
-
+const navigate = useNavigate()
+	const toMyProducts = () => {
+	navigate("/MyProducts", {state:{count:count,total:total}})
+}
 	return (
 		<div
 			className="Card"
@@ -56,8 +59,9 @@ const Card = (props) => {
                    onClick={() => {
 						document.getElementById('amountOfKuler').textContent =
 							count
+			   toMyProducts()
 					}}
-                    to="/MyProducts" 
+                    
                     bgColor="bg-black" py="py-2" px="px-[52px]" text="Добавить в корзину" />
 				
 			</div>
