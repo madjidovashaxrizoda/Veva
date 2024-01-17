@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 
 
-function ButtonMain({ to, bgColor, text, px, Icon, mt, py }) {
+function ButtonMain({ to, bgColor, text, px, Icon, mt, py, onClick }) {
   return (
-    <Link to={to} className={`inline-flex items-center ${px} ${py} text-lg ${bgColor} ${mt} text-white rounded-[1000px] `}>
+    <Link to={to} onclick={onClick} className={`inline-flex items-center ${px} ${py} text-lg ${bgColor} ${mt} text-white rounded-[1000px] `}>
       {Icon && <Icon className="mr-2"/>}
       {text}
     </Link>
