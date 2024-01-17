@@ -4,9 +4,10 @@ import water from '../../../assets/water.png'
 // import kuler from '../../../assets/kuler.png'
 import left from '../../../assets/left.png'
 import right from '../../../assets/right.png'
-
+import { useLocation } from 'react-router-dom'
 
 export default function Price() {
+     const location = useLocation()
 const [count, setCount] = useState(0)     
 const incrementCount = () => {
     setCount(count + 1);
@@ -39,7 +40,7 @@ const decrementCount = () => {
                <button onClick={decrementCount}>
                 <img src={left} alt="" />
             </button>
-            <p class="text-lg">{count}</p>
+            <p class="text-lg">{location.state.count}</p>
             <button onClick={incrementCount}>
                 <img src={right} alt="" />
             </button>
@@ -54,7 +55,7 @@ const decrementCount = () => {
                 <h4 class="text-[15px] text-[#98A2B3] font-light">
                     Итоговая стоимость:
                 </h4>
-                <p class="text-lg text-[#1CBBEE] font-bold">45 000</p>
+                <p class="text-lg text-[#1CBBEE] font-bold">{location.state.total}</p>
             </div>
         </div>
     </div>
